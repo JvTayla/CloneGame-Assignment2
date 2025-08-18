@@ -7,6 +7,8 @@ TagManager:
   - Fire
   - Water
   - Poison
+  - OnState
+  - OffState
   layers:
   - Default
   - TransparentFX
