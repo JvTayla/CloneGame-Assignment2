@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
+
+    [Header("Sound Effects")]
+    public AudioSource deathSound;
+    public AudioSource jumpSound;
 
     private Animator _animator;
 
@@ -120,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = v;
 
             _animator.SetBool("isJumping", !isGrounded);
+            jumpSound.Play();
         }
 
         
@@ -141,13 +148,13 @@ public class PlayerMovement : MonoBehaviour
         // Player 1 dies in Poison or Water
         if (playerTag == "Player1" && (collision.CompareTag("Poison") || collision.CompareTag("Water")))
         {
-            Respawn();
+           Respawn();
         }
 
         // Player 2 dies in Poison or Fire
         else if (playerTag == "Player2" && (collision.CompareTag("Poison") || collision.CompareTag("Fire")))
         {
-            Respawn();
+           Respawn();
         }
         
     }
