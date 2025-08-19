@@ -7,7 +7,7 @@ public class StartMenu : MonoBehaviour
 {
     [SerializeField] Slider VolumeSlider;
 
-    GameObject hubPanel;
+    public GameObject hubPanel;
 
     public void Start()
     {
