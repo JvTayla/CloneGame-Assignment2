@@ -11,6 +11,10 @@ TagManager:
   - OffState
   - FirePoint
   - WaterPoint
+  - P1Door
+  - P2Door
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
