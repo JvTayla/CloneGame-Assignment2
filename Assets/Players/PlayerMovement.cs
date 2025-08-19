@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
 
+    private Animator _animator;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private bool isGrounded;
@@ -38,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         respawnPoint = transform.position;
+
+        _animator = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -78,6 +82,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (groundCheck != null)
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        _animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
+
+        if (moveInput.x > 0.01f)
+        {
+            transform.localScale = new Vector3(1, 1, 1); // facing right
+        }
+        else if (moveInput.x < -0.01f)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // facing left
+        }
+
     }
 
     void FixedUpdate()
@@ -102,7 +118,11 @@ public class PlayerMovement : MonoBehaviour
             var v = rb.velocity;
             v.y = jumpForce;
             rb.velocity = v;
+
+            _animator.SetBool("isJumping", !isGrounded);
         }
+
+        
     }
 
     private void OnJumpCanceled(InputAction.CallbackContext ctx)
