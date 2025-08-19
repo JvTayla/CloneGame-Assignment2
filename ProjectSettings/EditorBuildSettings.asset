@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gabi.unity
     guid: b606ace90a6c11e4b93b780fceae8ae9
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: a714d6a9cfca65140a606364f55cc66a
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 8f541039c77af7546ae74e7640d1e47c
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 428d0ec8fa81f5c4e95fc24d7632cb78
   m_configObjects: {}

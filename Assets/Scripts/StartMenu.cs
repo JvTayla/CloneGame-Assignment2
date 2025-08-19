@@ -7,9 +7,11 @@ public class StartMenu : MonoBehaviour
 {
     [SerializeField] Slider VolumeSlider;
 
+    GameObject hubPanel;
+
     public void Start()
     {
-        if(!PlayerPrefs.HasKey("musicVolume"))
+        if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", 1);
             Load();
@@ -32,10 +34,17 @@ public class StartMenu : MonoBehaviour
     {
         PlayerPrefs.SetFloat("musicVolume", VolumeSlider.value);
     }
-    public void PlayGame()
+
+    public void StartupMenu()
     {
-        SceneManager.LoadScene("Game");
+        hubPanel.SetActive(true);
     }
+
+   public void PlayGame(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
