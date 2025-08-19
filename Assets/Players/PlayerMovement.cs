@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [Range(0.1f, 1f)]
     public float jumpCutMultiplier = 0.5f; //how much to cut when releasing early
     public float gravityScale = 3f;
+    //public bool isJumping;
+    //public bool isFalling;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -86,20 +88,43 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (groundCheck != null)
-            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+       
+            if (groundCheck != null)
+                isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        _animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
+            // Running / Idle
+            _animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
 
-        if (moveInput.x > 0.01f)
-        {
-            transform.localScale = new Vector3(1, 1, 1); // facing right
-        }
-        else if (moveInput.x < -0.01f)
-        {
-            transform.localScale = new Vector3(-1, 1, 1); // facing left
-        }
+            // Facing direction
+            if (moveInput.x > 0.01f)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (moveInput.x < -0.01f)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
 
+            // Jump / Fall checks
+            _animator.SetBool("isGrounded", isGrounded);
+
+            if (!isGrounded && rb.velocity.y > 0.01f)
+            {
+                _animator.SetBool("isJumping", true);
+                _animator.SetBool("isFalling", false);
+            }
+            else if (!isGrounded && rb.velocity.y < -0.01f)
+            {
+                _animator.SetBool("isJumping", false);
+                _animator.SetBool("isFalling", true);
+            }
+            else
+            {
+                // Reset when grounded
+                _animator.SetBool("isJumping", false);
+                _animator.SetBool("isFalling", false);
+            }
+        
     }
 
     void FixedUpdate()
