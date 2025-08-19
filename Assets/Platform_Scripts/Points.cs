@@ -25,14 +25,14 @@ public class Points : MonoBehaviour //This script is added to every point, on th
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if(this.gameObject.CompareTag("FirePoint") && collision.gameObject.name == "Player1")
+            if(this.gameObject.CompareTag("FirePoint") && collision.gameObject.name == "Player1 Anim")
             {
                 // iPoints++;
                 pointManager.incPoints();
                // print("Point collected");
                 Destroy(gameObject);
             }
-            else if(this.gameObject.CompareTag("WaterPoint") && collision.gameObject.name == "Player2")
+            else if(this.gameObject.CompareTag("WaterPoint") && collision.gameObject.name == "Player2 Anim")
             {
                 pointManager.incPoints();
                 Destroy(gameObject);

@@ -33,6 +33,9 @@ public class Button : MonoBehaviour  //Was initially for the buttons but add thi
 
     }
 
+
+
+
     public void Activate()
     {
         bMove = true;
