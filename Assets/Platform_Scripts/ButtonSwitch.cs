@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonSwitch : MonoBehaviour
+public class ButtonSwitch : MonoBehaviour  //Goes on the button platform which moves a platform when pressed
 {
     [Header("Platform to affect")] //Drag the platform to affect into this field.
     [Space(5)]

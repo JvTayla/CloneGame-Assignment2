@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoPlatform : MonoBehaviour
+public class AutoPlatform : MonoBehaviour //Add this with the Button Script to any platform that moves automatically
 {
     [Header("Positions platform moves between")]
     [SerializeField] private Transform pos;   // Target position

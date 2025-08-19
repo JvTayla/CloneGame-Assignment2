@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeverSwitch : MonoBehaviour
+public class LeverSwitch : MonoBehaviour //This script goes on the two empty gameobjects associated with a lever which indicates the on and off state via tags
 {
     private string thisTag;
     [Header("Platform to move")]

@@ -9,6 +9,8 @@ TagManager:
   - Poison
   - OnState
   - OffState
+  - FirePoint
+  - WaterPoint
   layers:
   - Default
   - TransparentFX
