@@ -7,7 +7,7 @@ public class Button : MonoBehaviour  //Was initially for the buttons but add thi
     [Header("Positions platform moves inbetween")]
     [Space(5)]
     [SerializeField] public Transform pos;
-    private Vector2 originalpos;
+    public Vector2 originalpos;
 
     [Header("Movement Settings")]
     [Space(5)]
