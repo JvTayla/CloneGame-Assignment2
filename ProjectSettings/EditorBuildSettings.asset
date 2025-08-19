@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 428d0ec8fa81f5c4e95fc24d7632cb78
+  - enabled: 1
+    path: Assets/Scenes/Thoriso.unity
+    guid: d58d9c682f2ce7645b6202a37602d7e4
   m_configObjects: {}
