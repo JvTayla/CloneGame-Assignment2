@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Gabi.unity
     guid: b606ace90a6c11e4b93b780fceae8ae9
   - enabled: 1
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Thoriso.unity
     guid: d58d9c682f2ce7645b6202a37602d7e4
+  - enabled: 1
+    path: Assets/Scenes/Hub.unity
+    guid: b5caac86d71a6e64585af8607bce5caf
   m_configObjects: {}

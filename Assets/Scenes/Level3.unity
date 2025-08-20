@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9088845869303163198, guid: 2c545db18fa273348b7de3c42193faf6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.48
+      value: -12.25
       objectReference: {fileID: 0}
     - target: {fileID: 9088845869303163198, guid: 2c545db18fa273348b7de3c42193faf6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Replay
+  m_text: Return to Hub
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2259,14 +2259,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 477960305}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: ReturnToMainMenu
-        m_Mode: 1
+        m_MethodName: PlayGame
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Hub
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &791379434
@@ -2475,7 +2475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989922812363735319, guid: 321c690ee3da6b4428c20a404448e3f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.640999
+      value: -12.089001
       objectReference: {fileID: 0}
     - target: {fileID: 2989922812363735319, guid: 321c690ee3da6b4428c20a404448e3f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18497,6 +18497,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8810235764588062160, guid: 96ab430acd76f264f8a9189aed0a7fd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -19568,8 +19572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 122137328}
-  optionsPanel: {fileID: 0}
-  instructionsPanel: {fileID: 0}
 --- !u!4 &2018847171
 Transform:
   m_ObjectHideFlags: 0

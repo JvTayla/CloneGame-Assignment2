@@ -28,6 +28,12 @@ public class StartMenu : MonoBehaviour
     }
     private void Load()
     {
+        if (hubPanel == null)
+        {
+            Debug.LogError("StartMenu: startPanel is not assigned in the Inspector!");
+            return;
+        }
+
         VolumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
     private void Save()
@@ -65,7 +71,7 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void RestartLevel()
+    public void Restart()
     {
 
         Time.timeScale = 1f;
