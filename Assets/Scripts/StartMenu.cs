@@ -40,7 +40,22 @@ public class StartMenu : MonoBehaviour
         hubPanel.SetActive(true);
     }
 
-   public void PlayGame(string sceneName)
+     public void RestartLevel()
+    {
+
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Thoriso");
+    }
+
+
+    public void PlayGame(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }

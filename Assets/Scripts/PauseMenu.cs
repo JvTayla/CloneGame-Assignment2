@@ -8,8 +8,6 @@ public class PauseMenu : MonoBehaviour
 {
     
     public GameObject pausePanel;
-    public GameObject optionsPanel;
-    public GameObject instructionsPanel;
 
     private bool isPaused = false;
 
@@ -33,33 +31,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = isPaused ? 0 : 1;
         pausePanel.SetActive(isPaused);
 
-        if (!isPaused)
-{
-            instructionsPanel.SetActive(false);
-            optionsPanel.SetActive(false);
-        }
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        
-        if (optionsPanel.activeInHierarchy || instructionsPanel.activeInHierarchy)
-        {
-            pausePanel.SetActive(false);
-        }
-
-        if (pausePanel.activeInHierarchy)
-        {
-            instructionsPanel.SetActive(false);
-            optionsPanel.SetActive(false);
-        }
-
-        if (!instructionsPanel.activeInHierarchy && !optionsPanel.activeInHierarchy && !pausePanel.activeInHierarchy)
-        {
-         
-        }
-
-    
     }
 
     public void ResumeGame()
@@ -84,6 +58,6 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("Thoriso");
     }
 }
