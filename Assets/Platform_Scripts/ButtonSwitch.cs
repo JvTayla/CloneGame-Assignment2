@@ -22,7 +22,7 @@ public class ButtonSwitch : MonoBehaviour  //Goes on the button platform which m
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") )
+        if ((collision.CompareTag("Player1") || collision.CompareTag("Player2") || collision.CompareTag("Box")))
         {
             platform.Activate();
         }
@@ -31,7 +31,7 @@ public class ButtonSwitch : MonoBehaviour  //Goes on the button platform which m
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if ((collision.CompareTag("Player1") || collision.CompareTag("Player2") || collision.CompareTag("Box")))
         {
             platform.Deactivate();
         }

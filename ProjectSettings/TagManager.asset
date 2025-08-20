@@ -15,6 +15,7 @@ TagManager:
   - P2Door
   - Player1
   - Player2
+  - Box
   layers:
   - Default
   - TransparentFX

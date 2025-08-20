@@ -22,7 +22,7 @@ public class LeverSwitch : MonoBehaviour //This script goes on the two empty gam
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if ((collision.CompareTag("Player1") || collision.CompareTag("Player2")))
         {
             if(thisTag == "OnState")
             {
