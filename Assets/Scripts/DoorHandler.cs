@@ -5,23 +5,30 @@ using UnityEngine;
 public class DoorHandler : MonoBehaviour
 {
 
+
     [Header("References")]
-    public DoorCheck[] doorcheck;  // assign in Inspector
+    public DoorCheck[] doorcheck;  // assign Player1 + Player2 in Inspector
     public GameObject nextScreen;
+
+    private bool isChecking = false; // prevent multiple coroutines
 
     private void Update()
     {
-        CheckDoor();
-    }
-    public void CheckDoor()
-    {
-        if (doorcheck != null && doorcheck.Length >= 2)
+        if (!isChecking && doorcheck != null && doorcheck.Length >= 2)
         {
-            // Assuming doorcheck[0] = player1, doorcheck[1] = player2
             if (doorcheck[0].isOpen && doorcheck[1].isOpen)
             {
-                nextScreen.SetActive(true);
+                StartCoroutine(CheckDoor());
             }
         }
+    }
+
+    private IEnumerator CheckDoor()
+    {
+        isChecking = true; // block new coroutines
+        Debug.Log("Both doors open, waiting 2 seconds...");
+        yield return new WaitForSeconds(2f);
+        nextScreen.SetActive(true);
+        Debug.Log("Next screen activated!");
     }
 }
