@@ -313,6 +313,10 @@ PrefabInstance:
       value: Door Checker
       objectReference: {fileID: 0}
     - target: {fileID: 8129192180492892550, guid: 2fcd23c60160e60428c90195738f793a, type: 3}
+      propertyPath: nextScreen
+      value: 
+      objectReference: {fileID: 1936151454}
+    - target: {fileID: 8129192180492892550, guid: 2fcd23c60160e60428c90195738f793a, type: 3}
       propertyPath: doorcheck.Array.data[0]
       value: 
       objectReference: {fileID: 482329540}
@@ -1858,6 +1862,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea7f4303d566e9418025660b84cf4dc, type: 3}
+--- !u!1 &1936151454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7979280872693341420, guid: cea7f4303d566e9418025660b84cf4dc, type: 3}
+  m_PrefabInstance: {fileID: 1936151453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1951992655
 PrefabInstance:
   m_ObjectHideFlags: 0
