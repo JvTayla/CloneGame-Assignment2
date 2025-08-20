@@ -2,31 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoPlatform : MonoBehaviour //Add this with the Button Script to any platform that moves automatically
+public class AutoPlatform : MonoBehaviour
 {
     [Header("Positions platform moves between")]
-    [SerializeField] private Transform pos;   // Target position
-    private Vector2 originalPos;
-
-    [Header("Movement Settings")]
+    [SerializeField] private Transform[] points;   // Assign multiple points in Inspector
     [SerializeField] private float speed = 2f;
+    [SerializeField] private float waitTime = 3f;  // Time to wait at each point
 
-    private bool movingToTarget = true;
-
-    void Start()
-    {
-        originalPos = transform.position;
-    }
+    private int currentPointIndex = 0;
+    private bool isWaiting = false;
 
     void Update()
     {
-        Vector2 target = movingToTarget ? pos.position : originalPos;
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if (points.Length == 0 || isWaiting) return;
 
-        // Check if we've reached the target (within small tolerance)
-        if (Vector2.Distance(transform.position, target) < 0.01f)
+        // Move towards current target point
+        Transform targetPoint = points[currentPointIndex];
+        transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
+
+        // Check if reached target
+        if (Vector2.Distance(transform.position, targetPoint.position) < 0.01f && !isWaiting)
         {
-            movingToTarget = !movingToTarget; // Flip direction
+            // Snap to exact position (fixes shaking)
+            transform.position = targetPoint.position;
+
+            StartCoroutine(WaitAtPoint());
         }
+    }
+
+    private IEnumerator WaitAtPoint()
+    {
+        isWaiting = true;
+        yield return new WaitForSeconds(waitTime);
+
+        // Go to next point (loops around)
+        currentPointIndex = (currentPointIndex + 1) % points.Length;
+
+        isWaiting = false;
     }
 }
