@@ -23,24 +23,16 @@ public class Points : MonoBehaviour //This script is added to every point, on th
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.CompareTag("Player1") || collision.CompareTag("Player2")))
+        if (collision.gameObject.CompareTag("Player1") && this.gameObject.CompareTag("FirePoint"))
         {
-            if(this.gameObject.CompareTag("FirePoint") && collision.gameObject.name == "Player1 Anim")
-            {
-                // iPoints++;
-                pointManager.incPoints();
-               // print("Point collected");
-                Destroy(gameObject);
-            }
-            else if(this.gameObject.CompareTag("WaterPoint") && collision.gameObject.name == "Player2 Anim")
-            {
-                pointManager.incPoints();
-                Destroy(gameObject);
-            }
-            else
-            {
-                return;
-            }
+            pointManager.incPoints();
+            Destroy(gameObject);
+        }
+
+        else if (collision.gameObject.CompareTag("Player2") && this.gameObject.CompareTag("WaterPoint"))
+        {
+            pointManager.incPointsTwo();
+            Destroy(gameObject);
         }
     }
 }
