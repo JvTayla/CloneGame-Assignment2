@@ -4,35 +4,43 @@ using UnityEngine;
 using TMPro;
 
 public class PointManager : MonoBehaviour //Have an empty gameobject keep track of the points obtained in the level
-{   
-    
-    public int iPointsOne;
-    public int iPointsTwo;
-    public TextMeshProUGUI pointsText; // Assign in Inspector
+{
+
+    public int redPoints;
+
+    public int bluePoints;
+    public TextMeshProUGUI bluePointsText;
+    public TextMeshProUGUI redPointsText;
 
     void Start()
     {
-        iPointsOne = 0;
-        iPointsTwo = 0;
-        UpdateText();
+        redPoints = 0;
+        bluePoints = 0;
+        UpdateRedText();
+        UpdateBlueText();
     }
 
-    public void incPoints()
+    public void blueIncPoints()
     {
-        iPointsOne++;
-        print("Current pts: " + iPointsOne);
-        UpdateText();
+        bluePoints++;
+        print("Current pts: " + bluePoints);
+        UpdateBlueText();
     }
 
-    public void incPointsTwo()
+    public void redIncPoints()
     {
-        iPointsTwo++;
-        UpdateText();
+        redPoints++;
+        print("Current pts: " + redPoints);
+        UpdateRedText();
     }
 
-    void UpdateText()
+    void UpdateRedText()
     {
-        int pointTotal = iPointsOne + iPointsTwo;
-        pointsText.text = "Gems: " + pointTotal;
+        redPointsText.text = "Gems: " + redPoints;
+    }
+    
+    void UpdateBlueText()
+    {
+        bluePointsText.text = "Gems: " + bluePoints;
     }
 }
