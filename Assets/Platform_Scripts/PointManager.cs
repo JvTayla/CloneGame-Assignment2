@@ -4,7 +4,9 @@ using UnityEngine;
 using TMPro;
 
 public class PointManager : MonoBehaviour //Have an empty gameobject keep track of the points obtained in the level
-{public int iPoints;
+{   
+    
+    public int iPoints;
     public TextMeshProUGUI pointsText; // Assign in Inspector
 
     void Start()

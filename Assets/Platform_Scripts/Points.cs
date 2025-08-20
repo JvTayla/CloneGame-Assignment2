@@ -23,7 +23,7 @@ public class Points : MonoBehaviour //This script is added to every point, on th
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if ((collision.CompareTag("Player1") || collision.CompareTag("Player2")))
         {
             if(this.gameObject.CompareTag("FirePoint") && collision.gameObject.name == "Player1 Anim")
             {
